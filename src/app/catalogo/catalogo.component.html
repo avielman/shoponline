@@ -1,0 +1,38 @@
+<div class="container margin-side">
+  <h1>Catálogo de Productos</h1>
+
+  <div class="row">
+    <div class="col">
+      <form class="">
+        <div class="container">
+          <h6>
+            Productos por página:
+          </h6>
+          <select class="form-control" (ngModel)="productsPerPage" >
+            <option *ngFor="let option of productsPerPageOptions" [value]="option" class="form-control">{{ option }}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="row margin20 col-lg-12" >
+        <div class="card col-lg-3" style="width: 18rem;" *ngFor="let product of productos">
+          <div class="row mt-0 card-prod" >
+            <img src="assets/img/noimage.jpg" class="card-img-top card-img-per margin5" alt="No Image" *ngIf="product.imagen==''">
+            <img [src]="product.imagen" class="card-img-top card-img-per" [alt]="product.nombre" *ngIf="product.imagen!==''">
+            <div class="card-body">
+              <h4 class="card-title text-center text-primary">{{ product.nombre }}</h4>
+              <p class="card-text text-justify">{{ product.descripcion }}</p>
+              <p class="card-text text-info cprecio text-right">
+                Precio: {{ product.precio | currency:'Q   ' }}
+              </p>
+              <a href="#" class="btn btn-primary">Ver Producto</a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

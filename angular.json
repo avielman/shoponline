@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/on-shop",
+            "outputPath": "../dist/on-shop",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,7 +67,7 @@
               "browserTarget": "onShop:build:production"
             },
             "development": {
-              "browserTarget": "onShop:build:development"
+              "browserTarget": "onShop:build:development:firefox"
             }
           },
           "defaultConfiguration": "development"

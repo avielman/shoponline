@@ -1,0 +1,49 @@
+<div class="wrapper full-height" >
+  <div class="flex h-full w-full flex-col p-2">
+    <nav id="full-height" class="bg-light sidebar">
+      <ul class="list-unstyled components">
+        <li>
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inicio</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">Página 1</a>
+            </li>
+            <li>
+              <a href="#">Página 2</a>
+            </li>
+            <li>
+              <a href="#">Página 3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Acerca de</a>
+        </li>
+        <li>
+          <a href="#">Servicios</a>
+        </li>
+        <li>
+          <a href="#">Contacto</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<script>
+   $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $('#content').toggleClass('active');
+      });
+
+      $('#sidebar').on('mouseenter', function () {
+        $(this).css('width', '250px');
+      });
+
+      $('#sidebar').on('mouseleave', function () {
+        if (!$('#sidebarCollapse').is(':hover')) {
+          $(this).css('width', '50px');
+        }
+      });
+    });
+</script>
