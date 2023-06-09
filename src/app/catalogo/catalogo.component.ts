@@ -28,6 +28,13 @@ export class CatalogoComponent implements OnInit {
 
   loadProducts() {
     let prod: Producto = new Producto;
+    let id: number = 0;
+    let codigo: number = 0;
+    let nombre: string = 'Producto';
+    let descripcion: string = '';
+    let precio: number = 0;
+    let imagen: string = '';
+    let etiqueta: string = 'celular';
     /*this.http.get<any[]>('URL_DEL_WEBSERVICE').subscribe(
       response => {
         this.products = response;
@@ -37,6 +44,8 @@ export class CatalogoComponent implements OnInit {
       }
       );
     }*/
+
+    /*
     this.noImage = "assets/img/noimage.jpg";
     prod.add(1, 1, 'Producto1', 'Descripción del producto 1', 55.56, this.noImage, 'celular');
     this.addProductos(prod);
@@ -53,9 +62,23 @@ export class CatalogoComponent implements OnInit {
     prod.add(5, 5, 'Producto5', 'Descripción del producto 5', 155.51, 'assets/img/Retro4.png', 'celular' );
     this.addProductos(prod);
     prod = new Producto;
-    prod.add(6, 6, 'Producto6', 'Descripción del producto 6', 156.51, 'assets/img/Retro4.png', 'celular' );
+    prod.add(6, 6, 'Producto6', 'Descripción del producto 6, esto es una prueba, para ver el contenido que puede almacenar el producto.', 156.51, 'assets/img/Retro4.png', 'celular' );
     this.addProductos(prod);
     console.log(this.productos);
+    */
+    for (let index = 1; index <= 20; index++) {
+      prod = new Producto;
+      id = index;
+      codigo = index;
+      nombre = 'Producto ' + index.toString();
+      descripcion = 'Descripción del producto ' + index.toString() + ', esto es una prueba, para ver el contenido que puede almacenar el producto.';
+      precio = 3.25 * index;
+      imagen = 'assets/img/Retro4.png';
+
+
+    prod.add(id, codigo, nombre, descripcion, precio, imagen, etiqueta);
+    this.addProductos(prod);
+    }
   }
 
   addProductos(aprod: Producto) {

@@ -1,38 +1,52 @@
-<div class="container margin-side">
+<div class="container" style="margin-left: 5.5em;">
   <h1>Catálogo de Productos</h1>
 
   <div class="row">
     <div class="col">
       <form class="">
-        <div class="container">
+        <div class="container"  style="margin-left: -10px;">
           <h6>
             Productos por página:
           </h6>
           <select class="form-control" (ngModel)="productsPerPage" >
             <option *ngFor="let option of productsPerPageOptions" [value]="option" class="form-control">{{ option }}</option>
           </select>
+          <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
         </div>
       </form>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <div class="row margin20 col-lg-12" >
-        <div class="card col-lg-3" style="width: 18rem;" *ngFor="let product of productos">
-          <div class="row mt-0 card-prod" >
-            <img src="assets/img/noimage.jpg" class="card-img-top card-img-per margin5" alt="No Image" *ngIf="product.imagen==''">
-            <img [src]="product.imagen" class="card-img-top card-img-per" [alt]="product.nombre" *ngIf="product.imagen!==''">
-            <div class="card-body">
-              <h4 class="card-title text-center text-primary">{{ product.nombre }}</h4>
-              <p class="card-text text-justify">{{ product.descripcion }}</p>
-              <p class="card-text text-info cprecio text-right">
-                Precio: {{ product.precio | currency:'Q   ' }}
-              </p>
-              <a href="#" class="btn btn-primary">Ver Producto</a>
+  <div class="container" style="margin-left: -28px;">
+    <div class="row">
+      <div class="col">
+        <div class="row row-prod">
+          <div class="col-md-3 col-prod" *ngFor="let product of productos; let i = index;"
+            style="margin-bottom: 5px; margin-top: 5px;">
+            <div class="card card-border" style="padding-left: 2rem; padding-right: 2rem; padding-top: 1rem;">
+              <div class="row">
+                <img src="assets/img/noimage.jpg" class="card-img-top card-img-per" alt="No Image" *ngIf="product.imagen==''">
+                <img [src]="product.imagen" class="card-img-top card-img-per" [alt]="product.nombre"
+                  *ngIf="product.imagen!==''">
+              </div>
+              <div class="row">
+                <h4 class="text-center text-primary">{{ product.nombre }}</h4>
+              </div>
+              <div class="row text-wrap text-break">
+                <p class="font-weight-light card-text text-justify">{{ product.descripcion }}</p>
+              </div>
+              <div class="row">
+                <p class="card-text text-info cprecio text-right">
+                  Precio: {{ product.precio | currency:'Q ' }}
+                </p>
+              </div>
+              <div class="row">
+                <a href="#" class="btn btn-info">Ver Producto</a>
+              </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
