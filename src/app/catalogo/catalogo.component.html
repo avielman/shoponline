@@ -1,52 +1,70 @@
-<div class="container" style="margin-left: 5.5em;">
-  <h1>Catálogo de Productos</h1>
-
-  <div class="row">
-    <div class="col">
-      <form class="">
-        <div class="container"  style="margin-left: -10px;">
-          <h6>
-            Productos por página:
-          </h6>
-          <select class="form-control" (ngModel)="productsPerPage" >
-            <option *ngFor="let option of productsPerPageOptions" [value]="option" class="form-control">{{ option }}</option>
-          </select>
-          <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
-        </div>
-      </form>
-    </div>
+<div class="row">
+  <div class="col-md-1">
   </div>
+  <div class="col-md-10">
+    <div class="container">
+      <h1>Catálogo de Productos</h1>
+      <div class="row">
+        <div class="col">
+          <form>
+              <div class="row">
+              <div class="col d-flex align-items-start ">
+                <label for="productsPerPage">Productos por página:</label>
+              </div>
+              <div class="col">
+                <select class="form-control" id="productsPerPage" (ngModel)="productsPerPage">
+                  <option *ngFor="let option of productsPerPageOptions" [value]="option">{{ option }}</option>
+                </select>
+              </div>
+              <div class="col">
+                <button type="submit" class="btn btn-primary">Aplicar Filtro</button>
+              </div>
+              <div class="col-md-4">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col margin-top25">
 
-  <div class="container" style="margin-left: -28px;">
-    <div class="row">
-      <div class="col">
-        <div class="row row-prod">
-          <div class="col-md-3 col-prod" *ngFor="let product of productos; let i = index;"
-            style="margin-bottom: 5px; margin-top: 5px;">
-            <div class="card card-border" style="padding-left: 2rem; padding-right: 2rem; padding-top: 1rem;">
-              <div class="row">
-                <img src="assets/img/noimage.jpg" class="card-img-top card-img-per" alt="No Image" *ngIf="product.imagen==''">
-                <img [src]="product.imagen" class="card-img-top card-img-per" [alt]="product.nombre"
-                  *ngIf="product.imagen!==''">
-              </div>
-              <div class="row">
-                <h4 class="text-center text-primary">{{ product.nombre }}</h4>
-              </div>
-              <div class="row text-wrap text-break">
-                <p class="font-weight-light card-text text-justify">{{ product.descripcion }}</p>
-              </div>
-              <div class="row">
-                <p class="card-text text-info cprecio text-right">
-                  Precio: {{ product.precio | currency:'Q ' }}
-                </p>
-              </div>
-              <div class="row">
-                <a href="#" class="btn btn-info">Ver Producto</a>
+        </div>
+      </div>
+      <!-- Paginación -->
+
+      <div class="pagination">
+        <a href="?page=1">1</a>
+        <a href="?page=2">2</a>
+        <a href="?page=3">3</a>
+        <a href="?page=4">4</a>
+        <a href="?page=5">5</a>
+      </div>
+
+      <!-- Paginación -->
+
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col-md-3 col-prod" *ngFor="let product of productos; let i = index;">
+              <div class="card card-border mb-3">
+                <img [src]="product.imagen || 'assets/img/noimage.jpg'" class="card-img-top card-img-per"
+                  [alt]="product.nombre">
+                <div class="card-body">
+                  <h4 class="text-primary">{{ product.nombre }}</h4>
+                  <p class="card-text">{{ product.descripcion }}</p>
+                  <p class="card-text text-info cprecio">
+                    Precio: {{ product.precio | currency:'Q ' }}
+                  </p>
+                  <a href="#" class="btn btn-info">Ver Producto</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+    </div> <!-- container -->
+  </div> <!-- col-md-10 -->
+  <div class="col-md-1">
   </div>
 </div>
